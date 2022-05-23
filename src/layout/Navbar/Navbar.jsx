@@ -9,7 +9,9 @@ export default function Navbar(props) {
     return(
         <nav>
             <section className=''>
-
+                <section>
+                    <img src={usuario.imagem} />
+                </section>
             </section>
         </nav>
     )
