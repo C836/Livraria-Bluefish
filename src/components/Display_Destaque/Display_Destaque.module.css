@@ -1,0 +1,39 @@
+.Display_Destaque{
+    height: 250px;
+    width: 50%;
+    position: relative;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.Display_Destaque section{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 60%;
+    bottom: 0;
+}
+
+.Display_Destaque section figure{
+    height: 60%;
+    padding: 30px;
+}
+
+.Display_Destaque img{
+    height: 100%;
+    box-shadow: 0 0 20px black;
+}
+
+.Display_Destaque aside{
+    padding: 50px 30px 0 0;
+}
+
+.Display_Destaque aside h1{
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.Display_Destaque aside p{
+    font-size: .9rem;
+}
+

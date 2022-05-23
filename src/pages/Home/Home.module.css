@@ -1,0 +1,13 @@
+.Home{
+    max-width: 1200px;
+    width: 90%;
+}
+
+.Destaque{
+    display: flex;
+}
+
+.Home .Grid{
+    display: grid;
+    gap: 10px;
+}

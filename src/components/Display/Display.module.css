@@ -1,0 +1,19 @@
+.Display{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center;
+}
+
+.Display figure{
+    height: 300px;
+}
+
+.Display figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.Display h1{
+    font-size: 1.3rem;
+}
