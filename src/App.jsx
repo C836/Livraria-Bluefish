@@ -1,7 +1,11 @@
 import React, { useState, createContext } from "react";
-import Home from "./pages/Home/Home";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 import Navbar from "./layout/Navbar/Navbar";
+import Home from "./pages/Home/Home";
+
+import "./App.css";
+import Sobre from "./pages/Sobre/Sobre";
 
 const usuarioContext = createContext();
 
@@ -13,12 +17,19 @@ function App() {
   });
 
   return (
-    <usuarioContext.Provider value={usuario}>
-      <div className="App">
-        <Navbar usuario={[usuario, atualizarUsuario]}/>
-        <Home />
-      </div>
-    </usuarioContext.Provider>
+    <Router>
+      <usuarioContext.Provider value={usuario}>
+        <div className="App">
+          <Navbar usuario={[usuario, atualizarUsuario]} />
+        </div>
+      
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/sobre" element={<Sobre />} />
+        {/* <Route path='*' exact={true} element={<NotFound />} /> */}
+      </Routes>
+      </usuarioContext.Provider>
+    </Router>
   );
 }
 

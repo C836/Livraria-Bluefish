@@ -11,7 +11,193 @@ export default function Home() {
   //const [livros, atualizarLivros] = useState({});
 
   //-----------------------------
- 
+  const livros = [
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+    {
+      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
+      titulo: "Biblia sagrada",
+      autor: "varios",
+    },
+  ];
 
   //-----------------------------
 
@@ -22,13 +208,14 @@ export default function Home() {
     fetch("https://livraria-apirest.herokuapp.com/livros")
       .then((res) => res.json())
       .then((res) => atualizarLivros(res));
-  }, []);
+  }, [livros]);
 
   return (
     <div className={styles.Home}>
       {/* <Display />
             <Display />
             <Display /> */}
+
 
       <Header />
 
@@ -39,7 +226,24 @@ export default function Home() {
           ))}
         </section>
 
-
+        <section
+          className={styles.Grid}
+          style={{
+            gridTemplateColumns: `repeat(5,1fr)`,
+          }}
+        >
+          {livros.length > 0
+            ? livros.map((item, index) => (
+                <>
+                  <Display
+                    imagem={item.capa}
+                    titulo={item.titulo}
+                    autor={item.autor}
+                  />
+                </>
+              ))
+            : ""}
+        </section>
       </main>
     </div>
   );

@@ -1,41 +1,43 @@
-.Navbar{
-    height: 80px;
-    width: 100%;
-    position: absolute;
-    color: white;
-    display: flex;
-    justify-content: center;
-    z-index: 1;
+.Navbar {
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  color: white;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
 }
 
-.Navbar section{
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
+.Navbar section {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.Navbar section div{
-    display: flex;
-    align-items: center;
+.Navbar section div,
+.Navbar section .logo {
+  display: flex;
+  align-items: center;
 }
 
-.Navbar section div{
-    height: 100%;
+.Navbar section div,
+.Navbar section .logo {
+  height: 100%;
 }
 
-.Navbar .logo img{
-    height: 60%;
-    margin-top: 5px;
+.Navbar .logo img {
+  height: 60%;
+  margin-top: 5px;
 }
 
-.Navbar .logo p{
-    font: 2.2rem 'Bubblegum Sans', cursive;
-    margin-left: 18px;
+.Navbar .logo p {
+  font: 2.2rem "Bubblegum Sans", cursive;
+  margin-left: 18px;
 }
 
-.Navbar .usuarioImagem{
-    border-radius: 50%;
-    height: 60%;
-    padding: 10px;
+.Navbar .usuarioImagem {
+  border-radius: 50%;
+  height: 60%;
+  padding: 10px;
 }
