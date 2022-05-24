@@ -1,0 +1,22 @@
+.Category{
+    border: rgba(128, 128, 128, 0.3) 2px solid;
+    background-color: white;
+    text-align: center;
+    height: 80px;
+    width: 140px;
+    font: 500 0.8rem 'Plus Jakarta Sans', sans-serif;
+    margin: 10px;
+    border-radius: 20px;
+    margin: 12px auto;
+    transition: border .2s;
+}
+
+.Category:hover{
+    border-color: #1884c4;
+}
+
+.Category img{
+    height: 25px;
+    padding: 15px 0 5px 0;
+    margin: auto;
+}

@@ -1,13 +1,33 @@
 .Home{
-    max-width: 1200px;
-    width: 90%;
+    width: 100%;
 }
 
 .Destaque{
     display: flex;
 }
 
+
+
+.Home main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Home main .Categories{
+    align-self: center;
+    display: flex;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1200px;
+    max-width: 95%;
+}
+
 .Home .Grid{
+    width: 1175px;
+    max-width: 95%;
     display: grid;
-    gap: 10px;
+    align-self: center;
+    gap: 50px;
 }

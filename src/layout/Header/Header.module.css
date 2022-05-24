@@ -1,5 +1,15 @@
 .Header{
+    height: 600px;
+    background-image: url(./../../assets/images/header.png);
+    position: relative;
+}
+
+.Header::after{
+    content: '';
+    background-color: #1884c4;
     width: 100%;
-    height: 300px;
-    display: flex;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
 }

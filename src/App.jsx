@@ -15,7 +15,7 @@ function App() {
   return (
     <usuarioContext.Provider value={usuario}>
       <div className="App">
-        <Navbar usuario={[usuario, atualizarUsuario]} />
+        <Navbar usuario={[usuario, atualizarUsuario]}/>
         <Home />
       </div>
     </usuarioContext.Provider>
