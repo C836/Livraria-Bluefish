@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./layout/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Sobre from "./pages/Sobre/Sobre";
+import Loading from "./layout/Loading/Loading";
 
 import "./App.css";
 
@@ -18,16 +19,18 @@ function App() {
 
   return (
     <Router>
-        <usuarioContext.Provider value={usuario}>
-          <div className="App">
-            <Navbar usuario={[usuario, atualizarUsuario]} />
-          </div>
-          <Routes className="Tteste">
+      <usuarioContext.Provider value={usuario}>
+        {/* <Loading /> */}
+        <div className="App">
+          <Navbar usuario={[usuario, atualizarUsuario]} />
+          
+          <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/sobre" element={<Sobre />} />
             {/* <Route path='*' exact={true} element={<NotFound />} /> */}
           </Routes>
-        </usuarioContext.Provider>
+        </div>
+      </usuarioContext.Provider>
     </Router>
   );
 }

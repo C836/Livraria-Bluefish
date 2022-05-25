@@ -10,13 +10,10 @@ import { livraria } from "../../assets/livraria-api";
 import Paginacao from "../../components/Paginacao/Paginacao";
 import Filter from "../../components/Filter/Filter";
 import ordenar from "../../utils/ordenar";
+import filtrarCategoria from "../../utils/filtrarCategoria";
 
 export default function Home() {
-  //-----------------------------
-
   const [destaques, setDestaques] = useState([]);
-
-  //-----------------------------
 
   const [pagina, setPagina] = useState(1);
   const [exibicao, setExibicao] = useState(20);
@@ -96,6 +93,7 @@ export default function Home() {
         >
           {livraria.length > 0
             ? livraria
+                .filter((e) => filtrarCategoria(e, categoria))
                 .sort(ordenar("titulo", "id", "preco", ordem))
                 .map((item, index) => {
                   if (
@@ -108,6 +106,7 @@ export default function Home() {
                           imagem={item.capa}
                           titulo={item.titulo}
                           autor={item.autor}
+                          preco={item.preco}
                         />
                       </>
                     );
@@ -115,7 +114,12 @@ export default function Home() {
             : ""}
         </section>
         <section className={styles.PaginacaoWrapper}>
-          <Paginacao pagina={pagina} setPagina={setPagina} />
+          <Paginacao
+            quantidade={livraria.length}
+            exibicao={exibicao}
+            pagina={pagina}
+            setPagina={setPagina}
+          />
         </section>
       </main>
     </div>

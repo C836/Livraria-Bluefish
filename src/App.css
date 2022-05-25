@@ -9,12 +9,6 @@
     padding: 0;
 }
 
-.App{
-    display: flex;
-    justify-content: center;
-
-}
-
 *:visited, a{
     color: inherit;
     text-decoration: none;

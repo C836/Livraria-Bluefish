@@ -21,6 +21,7 @@
 .Paginacao .disabled{
     opacity: 0.5;
     cursor: auto;
+    pointer-events: none;
 }
 
 .Paginacao img:nth-of-type(2){
