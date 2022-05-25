@@ -1,6 +1,14 @@
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./Sobre.module.css";
 
 export default function () {
+  const [teste, setTeste ] = useState([])
+
+  useEffect(()=>{
+    fetch('https://livraria-apirest.herokuapp.com/livros')
+    .then(res=>res.json())
+    .then(res=> setTeste(res))
+  },[])
   return (
     <div className={styles.Sobre}>
       <section className={styles.Header}>

@@ -7,7 +7,7 @@ export default function Display(props) {
         <img src={props.imagem} alt={props.titulo} />
       </figure>
       <article>
-        <h1>{props.titulo}</h1>
+        <h1>{props.titulo.split('').length>35? props.titulo.slice(0, 35)+'...' : props.titulo}</h1>
         <p>{props.autor}</p>
       </article>
     </div>

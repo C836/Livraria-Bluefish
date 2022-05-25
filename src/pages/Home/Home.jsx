@@ -6,217 +6,45 @@ import styles from "./Home.module.css";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import Navbar from "../../layout/Navbar/Navbar";
 import { Category, Categories } from "../../components/Category/Category";
+import { livraria } from "../../assets/livraria-api";
+import Paginacao from "../../components/Paginacao/Paginacao";
+import Filter from "../../components/Filter/Filter";
+import ordenar from "../../utils/ordenar";
 
 export default function Home() {
-  //const [livros, atualizarLivros] = useState({});
+  //-----------------------------
+
+  const [destaques, setDestaques] = useState([]);
 
   //-----------------------------
-  const livros = [
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-    {
-      capa: "https://kbimages1-a.akamaihd.net/3b759ac0-1cbf-4573-8bd8-2929cd3c432d/353/569/90/False/biblia-sagrada-catolica.jpg",
-      titulo: "Biblia sagrada",
-      autor: "varios",
-    },
-  ];
 
-  //-----------------------------
+  const [pagina, setPagina] = useState(1);
+  const [exibicao, setExibicao] = useState(20);
+  const [ordem, setOrdem] = useState("new");
 
   const [categoria, setCategoria] = useState("");
+
   const { width, height } = useWindowDimensions();
 
-  useEffect(() => {
-    fetch("https://livraria-apirest.herokuapp.com/livros")
-      .then((res) => res.json())
-      .then((res) => atualizarLivros(res));
-  }, [livros]);
+  // useEffect(() => {
+  //   Promise.all([
+  //     fetch("https://livraria-apirest.herokuapp.com/livros/id/1").then((res) =>
+  //       res.json()
+  //     ),
+  //     fetch("https://livraria-apirest.herokuapp.com/livros/id/2").then((res) =>
+  //       res.json()
+  //     ),
+  //   ]).then(res => setDestaques(res));
+  // }, []);
+
+  // useEffect(() => {
+  //   fetch("https://livraria-apirest.herokuapp.com/livros")
+  //     .then((res) => res.json())
+  //     .then((res) => atualizarLivros(res));
+  // }, [livros]);
 
   return (
     <div className={styles.Home}>
-      {/* <Display />
-            <Display />
-            <Display /> */}
-
-
       <Header />
 
       <main>
@@ -226,23 +54,68 @@ export default function Home() {
           ))}
         </section>
 
+        <section className={styles.Destaque}>
+          <Display_Destaque
+            capa={
+              "https://manualgeek.com.br/wp-content/uploads/2022/05/5149j28fV3L-768x1100.jpg"
+            }
+            titulo={"Os reinos partidos"}
+            autor={"N.K Jemisin"}
+            imagem={
+              "https://i2.wp.com/impagine.online/wp-content/uploads/2021/09/oscem-milreinos.png?fit=800%2C450&ssl=1"
+            }
+          />
+          <Display_Destaque
+            capa={
+              "https://manualgeek.com.br/wp-content/uploads/2022/05/5149j28fV3L-768x1100.jpg"
+            }
+            titulo={"Os reinos partidos"}
+            autor={"N.K Jemisin"}
+            imagem={
+              "https://i2.wp.com/impagine.online/wp-content/uploads/2021/09/oscem-milreinos.png?fit=800%2C450&ssl=1"
+            }
+          />
+        </section>
+
+        <section className={styles.FilterWrapper}>
+          <Filter
+            pagina={pagina}
+            quantidade={livraria.length}
+            exibicao={exibicao}
+            setExibicao={setExibicao}
+            ordem={ordem}
+            setOrdem={setOrdem}
+          />
+        </section>
+
         <section
           className={styles.Grid}
           style={{
             gridTemplateColumns: `repeat(5,1fr)`,
           }}
         >
-          {livros.length > 0
-            ? livros.map((item, index) => (
-                <>
-                  <Display
-                    imagem={item.capa}
-                    titulo={item.titulo}
-                    autor={item.autor}
-                  />
-                </>
-              ))
+          {livraria.length > 0
+            ? livraria
+                .sort(ordenar("titulo", "id", "preco", ordem))
+                .map((item, index) => {
+                  if (
+                    index < exibicao * pagina &&
+                    index > (pagina - 1) * exibicao - 1
+                  )
+                    return (
+                      <>
+                        <Display
+                          imagem={item.capa}
+                          titulo={item.titulo}
+                          autor={item.autor}
+                        />
+                      </>
+                    );
+                })
             : ""}
+        </section>
+        <section className={styles.PaginacaoWrapper}>
+          <Paginacao pagina={pagina} setPagina={setPagina} />
         </section>
       </main>
     </div>
