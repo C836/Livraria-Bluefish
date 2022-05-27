@@ -80,7 +80,7 @@ li {
 
 .carousel {
   position: relative;
-  padding-top: 100%;
+  padding-top: 500px;
   left: 50%;
   transform: translateX(-50%);
   height: 0;

@@ -3,8 +3,6 @@ import "./Carousel.css";
 import Carousel_Display from "./Carousel_Display/Carousel_Display";
 
 export default function Carousel(props) {
-  const [slide, setSlider] = useState(1)
-
   return (
     <section className={"CarouselWrapper"}>
       <section className="carousel" aria-label="Gallery">

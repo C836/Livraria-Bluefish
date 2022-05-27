@@ -3,17 +3,16 @@ import Display from "../../components/Display/Display";
 import Display_Destaque from "../../components/Display_Destaque/Display_Destaque";
 import Header from "../../layout/Header/Header";
 import styles from "./Home.module.css";
-import useWindowDimensions from "../../utils/useWindowDimensions";
-import Navbar from "../../layout/Navbar/Navbar";
 import { Category, Categories } from "../../components/Category/Category";
-import { livraria } from "../../assets/livraria-api";
 import Paginacao from "../../components/Paginacao/Paginacao";
 import Filter from "../../components/Filter/Filter";
 import ordenar from "../../utils/ordenar";
 import filtrarCategoria from "../../utils/filtrarCategoria";
+import getApi from "../../utils/getApi";
 
 export default function Home() {
   const [destaques, setDestaques] = useState([]);
+  const [livros, setLivros] = useState([]);
 
   const [pagina, setPagina] = useState(1);
   const [exibicao, setExibicao] = useState(20);
@@ -21,24 +20,9 @@ export default function Home() {
 
   const [categoria, setCategoria] = useState("");
 
-  const { width, height } = useWindowDimensions();
-
-  // useEffect(() => {
-  //   Promise.all([
-  //     fetch("https://livraria-apirest.herokuapp.com/livros/id/1").then((res) =>
-  //       res.json()
-  //     ),
-  //     fetch("https://livraria-apirest.herokuapp.com/livros/id/2").then((res) =>
-  //       res.json()
-  //     ),
-  //   ]).then(res => setDestaques(res));
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch("https://livraria-apirest.herokuapp.com/livros")
-  //     .then((res) => res.json())
-  //     .then((res) => atualizarLivros(res));
-  // }, [livros]);
+  useEffect(() => {
+    getApi().then((res) => setLivros(res));
+  }, [livros]);
 
   return (
     <div className={styles.Home}>
@@ -77,7 +61,7 @@ export default function Home() {
         <section className={styles.FilterWrapper}>
           <Filter
             pagina={pagina}
-            quantidade={livraria.length}
+            quantidade={livros.length}
             exibicao={exibicao}
             setExibicao={setExibicao}
             ordem={ordem}
@@ -91,31 +75,29 @@ export default function Home() {
             gridTemplateColumns: `repeat(5,1fr)`,
           }}
         >
-          {livraria.length > 0
-            ? livraria
-                .filter((e) => filtrarCategoria(e, categoria))
-                .sort(ordenar("titulo", "id", "preco", ordem))
-                .map((item, index) => {
-                  if (
-                    index < exibicao * pagina &&
-                    index > (pagina - 1) * exibicao - 1
-                  )
-                    return (
-                      <>
-                        <Display
-                          imagem={item.capa}
-                          titulo={item.titulo}
-                          autor={item.autor}
-                          preco={item.preco}
-                        />
-                      </>
-                    );
-                })
-            : ""}
+          {livros
+            .filter((e) => filtrarCategoria(e, categoria))
+            .sort(ordenar("titulo", "id", "preco", ordem))
+            .map((item, index) => {
+              if (
+                index < exibicao * pagina &&
+                index > (pagina - 1) * exibicao - 1
+              )
+                return (
+                  <>
+                    <Display
+                      imagem={item.capa}
+                      titulo={item.titulo}
+                      autor={item.autor}
+                      preco={item.preco}
+                    />
+                  </>
+                );
+            })}
         </section>
         <section className={styles.PaginacaoWrapper}>
           <Paginacao
-            quantidade={livraria.length}
+            quantidade={livros.length}
             exibicao={exibicao}
             pagina={pagina}
             setPagina={setPagina}

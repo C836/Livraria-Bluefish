@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import AppBackground from "./layout/AppBackground/AppBackground";
 import Navbar from "./layout/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Sobre from "./pages/Sobre/Sobre";
@@ -22,6 +23,7 @@ function App() {
       <usuarioContext.Provider value={usuario}>
         {/* <Loading /> */}
         <div className="App">
+          <AppBackground />
           <Navbar usuario={[usuario, atualizarUsuario]} />
           
           <Routes>

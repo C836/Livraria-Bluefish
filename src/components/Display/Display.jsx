@@ -9,7 +9,7 @@ export default function Display(props) {
       <article>
         <h1>{props.titulo.split('').length>35? props.titulo.slice(0, 35)+'...' : props.titulo}</h1>
         <p>{props.autor}</p>
-        <h2>R${props.preco.toFixed(2)}</h2>
+        <h2>R${Number(props.preco.replace(',','.')).toFixed(2)}</h2>
       </article>
     </div>
   );
