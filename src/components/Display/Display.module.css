@@ -1,6 +1,11 @@
 .Display{
     font-family: 'Plus Jakarta Sans', sans-serif;
     text-align: center;
+    cursor: pointer;
+}
+
+.Display *{
+    pointer-events: none;
 }
 
 .Display figure{
@@ -25,7 +30,7 @@
     position: absolute;
     transform: translateX(-50%);
     border-radius: 0px 0px 50px 50px / 0px 0px 50px 50px;
-    z-index: 99;
+    z-index: 5;
     bottom: 10px;
 }
 

@@ -21,7 +21,7 @@ export default function Paginacao(props) {
         name={+1}
         onClick={handleButtonClick}
         className={
-          props.exibicao * props.pagina > props.quantidade
+          props.exibicao * props.pagina >= props.quantidade
             ? styles.disabled
             : ""
         }

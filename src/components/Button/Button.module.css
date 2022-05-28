@@ -4,4 +4,20 @@
     width: 100%;
     border-radius: 36px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.Button:hover{
+    filter: brightness(80%);
+}
+
+.ButtonIcon{
+    height: 32px;
+    margin-right: 8px;
+    transform: rotateY(180deg);
 }

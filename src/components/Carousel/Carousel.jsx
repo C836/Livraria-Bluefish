@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Carousel.css";
 import Carousel_Display from "./Carousel_Display/Carousel_Display";
 

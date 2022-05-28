@@ -64,7 +64,7 @@ export default function Navbar(props) {
             }`}
           >
             {results.map((item, index) => (
-              <>
+              <div key={index}>
                 <Resultado
                   capa={item.capa}
                   titulo={item.titulo}
@@ -72,7 +72,7 @@ export default function Navbar(props) {
                   preco={item.preco}
                 />
                 {index + 1 < results.length ? <Divisor /> : ""}
-              </>
+              </div>
             ))}
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function Filter(props) {
       </p>
 
       <section>
-        <label for="exibicao">Exibir:⠀</label>
+        <label htmlFor="exibicao">Exibir:⠀</label>
         <select
           onChange={handleExibicaoChange}
           value={props.exibicao}
@@ -30,7 +30,7 @@ export default function Filter(props) {
           <option value={40}>40</option>
         </select>
 
-        <label for="ordem">⠀⠀⠀Ordenar por:⠀</label>
+        <label htmlFor="ordem">⠀⠀⠀Ordenar por:⠀</label>
         <select onChange={handleOrdemChange} value={props.ordem} name="ordem">
           <option value={"new"}>Mais novos</option>
           <option value={"old"}>Mais antigos</option>

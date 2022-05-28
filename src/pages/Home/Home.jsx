@@ -9,10 +9,13 @@ import Filter from "../../components/Filter/Filter";
 import ordenar from "../../utils/ordenar";
 import filtrarCategoria from "../../utils/filtrarCategoria";
 import getApi from "../../utils/getApi";
+import Detalhes_Livro from "../../components/Detalhes_Livro/Detalhes_Livro";
 
 export default function Home() {
   const [destaques, setDestaques] = useState([]);
   const [livros, setLivros] = useState([]);
+  const [livro, setLivro] = useState(-1);
+  const [clicked, setClicked] = useState(false)
 
   const [pagina, setPagina] = useState(1);
   const [exibicao, setExibicao] = useState(20);
@@ -84,17 +87,28 @@ export default function Home() {
                 index > (pagina - 1) * exibicao - 1
               )
                 return (
-                  <>
+                  <div key={index}>
                     <Display
+                      setLivro={setLivro}
+                      setClicked={setClicked}
+                      id={item.id}
                       imagem={item.capa}
                       titulo={item.titulo}
                       autor={item.autor}
                       preco={item.preco}
                     />
-                  </>
+                  </div>
                 );
             })}
         </section>
+
+        <section>
+          <Detalhes_Livro
+          id={livro}
+          clicked={clicked}
+          setClicked={setClicked} />
+        </section>
+
         <section className={styles.PaginacaoWrapper}>
           <Paginacao
             quantidade={livros.length}

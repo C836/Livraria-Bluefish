@@ -15,7 +15,7 @@ export default function Resultado(props) {
               : props.titulo}
           </h1>
           <p>{props.autor}</p>
-          <h2>R${Number(props.preco.replace(",", ".")).toFixed(2)}</h2>
+          <h2>R${Number(String(props.preco).replace(",", ".")).toFixed(2)}</h2>
         </aside>
       </div>
     </div>
