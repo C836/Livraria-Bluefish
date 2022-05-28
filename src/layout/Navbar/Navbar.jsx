@@ -49,6 +49,8 @@ export default function Navbar(props) {
           <img className={styles.usuarioImagem} src={usuario.imagem} />
         </div>
 
+        <p>{usuario.nome}</p>
+
         <div className={`toggleSearch ${styles.Search}`}>
           <img src={searchIcon} className={styles.SearchIcon} />
           <input
