@@ -1,0 +1,46 @@
+.Display{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Display *{
+    pointer-events: none;
+}
+
+.Display figure{
+    height: 275px;
+    position: relative;
+}
+
+.Display figure img{
+    width: 75%;
+    bottom: 35px;
+    position: absolute;
+    object-fit: contain;
+    transform: translateX(-50%);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.Display figure::after{
+    content: '';
+    width: 85%;
+    height: 5px;
+    background-color: #1884c4;
+    position: absolute;
+    transform: translateX(-50%);
+    border-radius: 0px 0px 50px 50px / 0px 0px 50px 50px;
+    z-index: 5;
+    bottom: 10px;
+}
+
+.Display h1{
+    font-size: 1.2rem;
+    margin: 5px 0 ;
+}
+
+.Display h2{
+    font-size: 1.4rem;
+    margin: 14px 0 ;
+    color: #1884c4;
+}

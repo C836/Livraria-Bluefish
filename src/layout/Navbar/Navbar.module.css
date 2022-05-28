@@ -1,0 +1,111 @@
+.Navbar {
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font: 1rem "Plus Jakarta Sans", sans-serif;
+  z-index: 1;
+}
+
+.Navbar section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+}
+
+.Navbar section .logo {
+  width: 295px;
+  float: left;
+}
+
+.Navbar section .Links,
+.Navbar section .logo,
+.Navbar section .Search {
+  display: flex;
+  align-items: center;
+}
+
+.Navbar section .Links,
+.Navbar section .logo,
+.Navbar section .Search {
+  height: 100%;
+}
+
+.Navbar section .Links a {
+  margin: 0 30px;
+}
+
+.Navbar .logo img {
+  height: 60%;
+  margin-top: 5px;
+}
+
+.Navbar .logo p {
+  font: 2.2rem "Bubblegum Sans", cursive;
+  margin-left: 15px;
+}
+
+.Navbar .Search {
+  flex-direction: row;
+  position: relative;
+  z-index: 5;
+  transition: 0.2s;
+}
+
+.Navbar .Search input {
+  align-self: center;
+  position: absolute;
+  background-color: #ffffff30;
+  color: white;
+  width: 100%;
+  height: 50%;
+  box-sizing: border-box;
+  border: 10px solid transparent;
+  font: 1rem "Plus Jakarta Sans", sans-serif;
+  outline: none;
+  z-index: 5;
+  border-radius: 6px;
+  text-indent: 35px;
+}
+
+.Navbar .Search input::placeholder {
+  color: white;
+}
+
+.Navbar .Search .SearchIcon {
+  height: 25%;
+  margin-left: 11px;
+}
+
+.Navbar .Search .resultsWrapper {
+  top: 70px;
+  overflow-y: auto;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  box-sizing: border-box;
+  background-color: white;
+  border: 8px solid white;
+}
+
+.Navbar .Links {
+  float: right;
+}
+
+.Navbar .Links .usuarioImagem {
+  border-radius: 50%;
+  height: 60%;
+  border: 3px solid white;
+  margin-left: 50px;
+}
+
+.Navbar .disabled {
+  opacity: 0;
+  pointer-events: none;
+}

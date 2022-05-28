@@ -1,0 +1,50 @@
+.Home{
+    width: 100%;
+}
+
+.Home main .Destaque{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    margin: 40px;
+    width: 1175px;
+    max-width: 95%;
+    align-self: center;
+}
+
+.Home main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 30px solid #1884c4;
+}
+
+.Home main .Categories{
+    align-self: center;
+    display: flex;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1200px;
+    max-width: 95%;
+}
+
+.Home main .FilterWrapper{
+    width: 1175px;
+    max-width: 95%;
+    align-self: center;
+}
+
+.Home .Grid{
+    width: 1175px;
+    max-width: 95%;
+    display: grid;
+    align-self: center;
+    margin-top: 40px;
+    gap: 50px;
+}
+
+.Home .PaginacaoWrapper{
+    align-self: center;
+    margin-top: 50px;
+}

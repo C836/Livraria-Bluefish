@@ -1,0 +1,32 @@
+.Sobre{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.Sobre .Header{
+    background-image: url(./../../assets/images/headerSobre.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 450px;
+    padding-top: 50px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 30px solid #1884c4;
+}
+
+.Sobre .Header h1{
+    font-size: 3rem;
+    max-width: 90%;
+    width: 700px;
+}
+
+.Sobre .Header p{
+    font-size: 1.2rem;
+    max-width: 90%;
+    line-height: 1.6;
+    margin-top: 25px;
+    width: 900px;
+}

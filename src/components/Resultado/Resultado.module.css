@@ -1,0 +1,49 @@
+.Resultado{
+    width: calc(100% - 6px);
+    margin: 5px 0;
+    position: relative;
+    font: 1.1rem 'Plus Jakarta Sans', sans-serif;
+    color: black;
+    cursor: pointer;
+}
+
+.Resultado:hover{
+    background-color: #1885c438;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.Resultado *{
+    pointer-events: none;
+}
+
+.Resultado figure{
+    padding: 10px;
+    width: clamp(40px, 40%, 120px);
+    max-width: 120px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.Resultado figure img{
+    width: 100%;
+}
+
+.Resultado aside{
+    width: 60%;
+    box-sizing: border-box;
+    padding: 10px;
+    float: left;
+    top: 0;
+}
+
+.Resultado aside p{
+    font-size: 0.9rem;
+    margin: 7px 0;
+}
+
+.Resultado aside h2{
+    color: #1884c4;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}

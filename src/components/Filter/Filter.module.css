@@ -1,0 +1,11 @@
+.Filter{
+    display: flex;
+    justify-content: space-between;
+    font: 500 1rem 'Plus Jakarta Sans', sans-serif;
+    word-spacing: 2px;
+}
+
+.Filter select{
+    font: 500 1rem 'Plus Jakarta Sans', sans-serif;
+    outline: none;
+}
