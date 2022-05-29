@@ -13,10 +13,16 @@ import "./App.css";
 const usuarioContext = createContext();
 
 function App() {
-  const [usuario, atualizarUsuario] = useState({});
+  const [usuario, atualizarUsuario] = useState({
+    id: -1,
+    nome: "Anônimo"
+  });
 
   useEffect(()=>{
-    atualizarUsuario(JSON.parse(localStorage.getItem("usuario")))
+    if(localStorage.getItem("usuario")){
+    atualizarUsuario(
+      JSON.parse(localStorage.getItem("usuario")))
+    }
   },[])
 
   return (

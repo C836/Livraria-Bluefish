@@ -1,4 +1,4 @@
-import { EncryptStorage } from 'encrypt-storage';
+import encrypt from "./encript"
 
 export default function storage(data, method){
     console.log(data)
@@ -6,8 +6,8 @@ export default function storage(data, method){
         case 'setLogin':
         localStorage.setItem("usuario", 
         JSON.stringify({
-            "id": data.id,
-            "nome": data.nome
+            id: encrypt(String(data.id), "encrypt"),
+            nome: data.nome
         }))
     }
 }

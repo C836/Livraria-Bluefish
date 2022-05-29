@@ -35,18 +35,19 @@ export default function Cadastro(props) {
               .includes(e.target.email.value.toLowerCase())
           ),
           e.target.senha.value,
-          (callback)=>{
-            storage(callback, "setLogin")
-          })
+          (callback) => {
+            storage(callback, "setLogin");
+          }
+        )
       );
   };
 
   return (
-      <>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-  <Form
-  cadastroSubmit={handleCadastroSubmit}
-  loginSubmit={handleLoginSubmit} />
-  </>
+    <>
+      <Form
+        cadastroSubmit={handleCadastroSubmit}
+        loginSubmit={handleLoginSubmit}
+      />
+    </>
   );
 }

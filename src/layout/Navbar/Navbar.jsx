@@ -6,13 +6,23 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Resultado from "../../components/Resultado/Resultado";
 import getApi from "../../utils/getApi";
 import Divisor from "../../components/Divisor/Divisor";
+import Button from "./../../components/Button/Button"
+import Detalhes_Livro from "./../../components/Detalhes_Livro/Detalhes_Livro"
+import Anuncio from "../../components/Anuncio/Anuncio";
 
 export default function Navbar(props) {
   const usuario = props.usuario[0];
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState(false);
 
+  const [livro, setLivro] = useState(-1);
+  const [clicked, setClicked] = useState(false)
+
   const [searchInputRef, searchResultsRef] = [useRef(null), useRef(null)];
+
+  const handleButtonClick = (e) =>{
+     setClicked(true)
+  }
 
   const handleResultsChange = (e) => {
     if (e.target.value.length > 1) {
@@ -45,11 +55,30 @@ export default function Navbar(props) {
 
         <div className={styles.Links}>
           <Link to="/sobre">Sobre</Link>
-          <p>Meus anúncios</p>
-          <img className={styles.usuarioImagem} src={usuario.imagem} />
+          <Button
+          onClick={handleButtonClick}
+          texto="Novo Anuncio +" />
+          {usuario.id!==-1 ? (
+            <span 
+            className={styles.usuarioImagem}>
+              {usuario.nome.slice(0,1)}
+            </span>
+          ) : (
+            <img
+              className={styles.usuarioImagem}
+              src={
+                "https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true"
+              }
+            />
+          )}
         </div>
 
-        <p>{usuario.nome}</p>
+        <section>
+          <Anuncio
+          id={livro}
+          clicked={clicked}
+          setClicked={setClicked} />
+        </section>
 
         <div className={`toggleSearch ${styles.Search}`}>
           <img src={searchIcon} className={styles.SearchIcon} />
