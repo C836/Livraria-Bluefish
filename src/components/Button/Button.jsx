@@ -10,6 +10,7 @@ export default function Button(props) {
         color: props.cor,
         backgroundColor: props.backColor,
         borderRadius: props.border,
+        height: props.height
       }}
     >
       {props.type === "addTo" ? (

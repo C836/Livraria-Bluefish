@@ -15,7 +15,7 @@ export default function Home() {
   const [destaques, setDestaques] = useState([]);
   const [livros, setLivros] = useState([]);
   const [livro, setLivro] = useState(-1);
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(false);
 
   const [pagina, setPagina] = useState(1);
   const [exibicao, setExibicao] = useState(20);
@@ -104,9 +104,10 @@ export default function Home() {
 
         <section>
           <Detalhes_Livro
-          id={livro}
-          clicked={clicked}
-          setClicked={setClicked} />
+            id={livro}
+            clicked={clicked}
+            setClicked={setClicked}
+          />
         </section>
 
         <section className={styles.PaginacaoWrapper}>

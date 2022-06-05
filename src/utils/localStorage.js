@@ -1,7 +1,6 @@
 import encrypt from "./encript"
 
 export default function storage(data, method){
-    console.log(data)
     switch(method){
         case 'setLogin':
         localStorage.setItem("usuario", 
@@ -11,3 +10,13 @@ export default function storage(data, method){
         }))
     }
 }
+
+export function getId(){
+    return JSON.parse(localStorage.getItem("usuario")).id
+}
+
+export function getUser(){
+    return JSON.parse(localStorage.getItem("usuario")).nome
+}
+
+

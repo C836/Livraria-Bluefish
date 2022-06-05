@@ -36,63 +36,68 @@ export default function Detalhes_Livro(props) {
     }
   }, [props.clicked]);
 
-  return livro[0] ? (
-    <>
-      <div
-        className={`
+  return (
+    livro[0] && (
+      <>
+        <div
+          className={`
         ${styles.DetalhesBackground} 
         ${background ? "" : styles.disabled}`}
-      >
-        <LoadingCircle
-        loaded={props.clicked} />
-      </div>
-      <div
-        className={`
+        >
+          <LoadingCircle loaded={props.clicked} />
+        </div>
+        <div
+          className={`
         ${styles.Detalhes_Livro} 
         ${active ? "" : styles.disabled}`}
-      >
-        <figure>
-          <img src={livro[0].capa} />
-        </figure>
-
-        <aside>
-          <h1>{livro[0].titulo}</h1>
-          <h3>{livro[0].autor}</h3>
-
-          <figure className={styles.Rating}>
-            <Star_Rating avaliacao={livro[0].avaliacao} />
+        >
+          <figure>
+            <img src={livro[0].capa} />
           </figure>
 
-          <h4 className={styles.Vendedor}>
-            {"Vendido por:⠀"}
-            <span>{"Livraria Bluefish ✓"}</span>
-          </h4>
+          <aside>
+            <h1>{livro[0].titulo}</h1>
+            <h3>{livro[0].autor}</h3>
 
-          <p>{livro[0].descricao}</p>
+            <figure className={styles.Rating}>
+              {livro[0].avaliacao !== null && (
+                <Star_Rating avaliacao={livro[0].avaliacao} />
+              )}
+            </figure>
 
-          <span className={styles.ButtonWrapper}>
-            <Button
-              onClick={handleClickVoltar}
-              className={styles.Button}
-              backColor={"rgb(200, 200, 200)"}
-              border={"10px"}
-              texto={"Voltar"}
-            />
+            <h4 className={styles.Vendedor}>
+              {"Vendido por:⠀"}
+              {livro[0].vendedor ? (
+                <div>{livro[0].vendedor}</div>
+              ) : (
+                <span>{"Livraria Bluefish ✓"}</span>
+              )}
+            </h4>
 
-            <Button
-              onClick={handleClickComprar}
-              className={styles.Button}
-              cor={"white"}
-              backColor={"#1884c4"}
-              border={"10px"}
-              texto={`Adicionar⠀-⠀R$${livro[0].preco}`}
-              type={"addTo"}
-            />
-          </span>
-        </aside>
-      </div>
-    </>
-  ) : (
-    []
+            <p>{livro[0].descricao}</p>
+
+            <span className={styles.ButtonWrapper}>
+              <Button
+                onClick={handleClickVoltar}
+                className={styles.Button}
+                backColor={"rgb(200, 200, 200)"}
+                border={"10px"}
+                texto={"Voltar"}
+              />
+
+              <Button
+                onClick={handleClickComprar}
+                className={styles.Button}
+                cor={"white"}
+                backColor={"#1884c4"}
+                border={"10px"}
+                texto={`Adicionar⠀-⠀R$${livro[0].preco}`}
+                type={"addTo"}
+              />
+            </span>
+          </aside>
+        </div>
+      </>
+    )
   );
 }

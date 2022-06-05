@@ -1,7 +1,6 @@
 .Button{
     background-color: white;
     font: 700 1rem 'Plus Jakarta Sans', sans-serif;
-    width: 100%;
     border-radius: 36px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     position: relative;
