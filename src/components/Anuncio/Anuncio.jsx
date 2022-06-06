@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import styles from "./Anuncio.module.css";
 import Button from "../Button/Button";
 import imageExists from "./../../utils/filters/imageExists";
 import { getId, getUser } from "../../utils/localStorage";
-import { decrypt } from "../../utils/encript";
+import { encrypt, decrypt } from "../../utils/encript";
 
 export default function Anuncio(props) {
+
   const [active, setActive] = useState(false);
   const [background, setBackground] = useState(false);
   const [livro, setLivro] = useState([]);
@@ -19,14 +20,13 @@ export default function Anuncio(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://livraria-apistore.herokuapp.com/livros/add", {
-      method: "POST",
+    fetch((props.info ? "https://livraria-apistore.herokuapp.com/livros/update/" + props.info.id : "https://livraria-apistore.herokuapp.com/livros/add"), {
+      method: props.info ? "PATCH" : "POST",
       headers: new Headers({
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       }),
       body: JSON.stringify({
-        isbn: getUser(),
         titulo: e.target.titulo.value,
         autor: e.target.autor.value,
         capa: e.target.capa.value,
@@ -36,6 +36,13 @@ export default function Anuncio(props) {
         descricao: e.target.descricao.value,
       }),
     })
+      .then((res) => res.json())
+      .then((res) =>
+        {localStorage.setItem(
+          "addedBooks",
+          `${localStorage.getItem("addedBooks")},${res.lastID}`
+        ); }
+      );
     // setBackground(false);
     // setActive(false);
     // props.setClicked(false);
@@ -74,18 +81,39 @@ export default function Anuncio(props) {
           <img src={imgSrc} />
         </figure>
 
-        <form onSubmit={handleSubmit}>
-          <input name="titulo" placeholder="Titulo" />
-          <input name="autor" placeholder="Autor" />
+        <form ref={anuncioRef} onSubmit={handleSubmit}>
+          <input
+            name="titulo"
+            placeholder="Titulo"
+            defaultValue={props.info?.titulo}
+          />
+          <input name="autor" placeholder="Autor" defaultValue={props.info?.autor} />
           <input
             onChange={handleImgSrcChange}
             name="capa"
             placeholder="Capa (URL)"
+            defaultValue={props.info?.capa}
           />
-          <input name="preco" placeholder="Preço do livro à vista" />
-          <input name="vendedor" placeholder='Vendedor (nome)' />
-          <input name="genero" placeholder="Gêneros (ex: Romance, aventura)" />
-          <textarea name="descricao" placeholder="Descrição" />
+          <input
+            name="preco"
+            placeholder="Preço do livro à vista"
+            defaultValue={props.info?.preco}
+          />
+          <input
+            name="vendedor"
+            placeholder="Vendedor (nome)"
+            defaultValue={props.info?.vendedor}
+          />
+          <input
+            name="genero"
+            placeholder="Gêneros (ex: Romance, aventura)"
+            defaultValue={props.info?.genero}
+          />
+          <textarea
+            name="descricao"
+            placeholder="Descrição"
+            defaultValue={props.info?.descricao}
+          />
 
           <span className={styles.ButtonWrapper}>
             <Button

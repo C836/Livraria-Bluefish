@@ -1,11 +1,11 @@
-import encrypt from "./encript"
+import { encrypt } from "./encript"
 
 export default function storage(data, method){
     switch(method){
         case 'setLogin':
         localStorage.setItem("usuario", 
         JSON.stringify({
-            id: encrypt(String(data.id), "encrypt"),
+            id: encrypt(String(data.id)),
             nome: data.nome
         }))
     }

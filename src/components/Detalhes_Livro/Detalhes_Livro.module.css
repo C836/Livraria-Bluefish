@@ -45,6 +45,7 @@
 
 .Detalhes_Livro aside h1{
     font-size: 2.5rem;
+    width: 88%;
 }
 
 .Detalhes_Livro .Rating{

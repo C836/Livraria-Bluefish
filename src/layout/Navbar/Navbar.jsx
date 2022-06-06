@@ -1,7 +1,7 @@
 import logo from "./../../assets/images/logoWhite.png";
 import searchIcon from "./../../assets/images/searchIcon.svg";
 import styles from "./Navbar.module.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Resultado from "../../components/Resultado/Resultado";
 import getApi from "../../utils/getApi";

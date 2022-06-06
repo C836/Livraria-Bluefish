@@ -5,6 +5,8 @@ import Star_Rating from "./../Star_Rating/Star_Rating";
 import Button from "../Button/Button";
 import isMounted from "./../../utils/isMounted";
 import LoadingCircle from "../LoadingCircle/LoadingCircle";
+import Delete from "../Delete/Delete";
+import Edit from "../Edit/Edit";
 
 export default function Detalhes_Livro(props) {
   const [active, setActive] = useState(false);
@@ -36,6 +38,16 @@ export default function Detalhes_Livro(props) {
     }
   }, [props.clicked]);
 
+  const [idList, setIdList] = useState(null);
+
+  useEffect(() => {
+    if (localStorage.getItem("addedBooks")) {
+      setIdList(localStorage.getItem("addedBooks").split(","));
+    }
+
+    console.log(localStorage.getItem("addedBooks").split(","));
+  }, []);
+
   return (
     livro[0] && (
       <>
@@ -51,6 +63,13 @@ export default function Detalhes_Livro(props) {
         ${styles.Detalhes_Livro} 
         ${active ? "" : styles.disabled}`}
         >
+          {idList.find((e) => e === String(livro[0].id)) && (
+            <>
+              <Delete id={livro[0].id} close={handleClickVoltar} />
+              <Edit voltar={handleClickVoltar} info = {livro} />
+            </>
+          )}
+
           <figure>
             <img src={livro[0].capa} />
           </figure>
