@@ -54,10 +54,10 @@ export default function Navbar(props) {
   return (
     <nav className={styles.Navbar}>
       <section>
-        <Link to="/" className={styles.logo}>
+        <div className={styles.logo}>
           <img src={logo} alt="Bluefish" />
           <p>Bluefish livraria</p>
-        </Link>
+        </div>
 
         <div className={styles.Links}>
           <Button onClick={handleAnuncioClick} texto="Novo Anuncio +" />

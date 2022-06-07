@@ -56,7 +56,7 @@ export default function Home() {
       <Header setLivro={setLivro} setClicked={setClicked} />
 
       <main>
-        <section className={styles.Categories}>
+        <section className={styles.Categories} id="categorias">
           {Categories.map((item, index) => (
             <Category
               key={index}
@@ -95,6 +95,7 @@ export default function Home() {
         </section>
 
         <section
+          id="catalogo"
           className={styles.Grid}
           style={{
             gridTemplateColumns: `repeat(5,1fr)`,

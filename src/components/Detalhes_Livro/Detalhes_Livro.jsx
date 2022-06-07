@@ -13,10 +13,6 @@ export default function Detalhes_Livro(props) {
   const [background, setBackground] = useState(false);
   const [livro, setLivro] = useState([]);
 
-  const handleClickComprar = () => {
-    alert("awer");
-  };
-
   const handleClickVoltar = () => {
     setBackground(false);
     setActive(false);
@@ -103,7 +99,6 @@ export default function Detalhes_Livro(props) {
               />
 
               <Button
-                onClick={handleClickComprar}
                 className={styles.Button}
                 cor={"white"}
                 backColor={"#1884c4"}
