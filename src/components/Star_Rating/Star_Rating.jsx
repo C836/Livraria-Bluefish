@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { empty, half, full } from "./../../assets/images/stars/index";
+import { empty, full, half } from "./../../assets/images/stars/index";
 
 export default function Star_Rating(props) {
   const [rating, setRating] = useState([]);
@@ -10,7 +10,7 @@ export default function Star_Rating(props) {
 
     for (let x in arr) {
       arr[x] = star >= 1 ? 2 : star >= 0.5 ? 1 : 0;
-      star--
+      star--;
     }
 
     setRating(arr);

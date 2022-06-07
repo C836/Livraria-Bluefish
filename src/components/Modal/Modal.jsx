@@ -1,5 +1,5 @@
-import styles from "./Modal.module.css";
 import Button from "./../Button/Button";
+import styles from "./Modal.module.css";
 
 export default function Modal(props) {
   const { active, texto, confirmar, voltar } = props;

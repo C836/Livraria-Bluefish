@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import getApi from "../../utils/getApi";
-import styles from "./Detalhes_Livro.module.css";
-import Star_Rating from "./../Star_Rating/Star_Rating";
 import Button from "../Button/Button";
-import isMounted from "./../../utils/isMounted";
-import LoadingCircle from "../LoadingCircle/LoadingCircle";
 import Delete from "../Delete/Delete";
 import Edit from "../Edit/Edit";
+import LoadingCircle from "../LoadingCircle/LoadingCircle";
+import isMounted from "./../../utils/isMounted";
+import Star_Rating from "./../Star_Rating/Star_Rating";
+import styles from "./Detalhes_Livro.module.css";
 
 export default function Detalhes_Livro(props) {
   const [active, setActive] = useState(false);
@@ -60,7 +60,7 @@ export default function Detalhes_Livro(props) {
           {idList?.find((e) => e === String(livro[0].id)) && (
             <>
               <Delete id={livro[0].id} close={handleClickVoltar} />
-              <Edit voltar={handleClickVoltar} info = {livro} />
+              <Edit voltar={handleClickVoltar} info={livro} />
             </>
           )}
 

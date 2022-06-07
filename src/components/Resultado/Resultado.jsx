@@ -1,6 +1,4 @@
 import styles from "./Resultado.module.css";
-import Detalhes_Livro from "../Detalhes_Livro/Detalhes_Livro";
-import { useState } from "react";
 
 export default function Resultado(props) {
   const { resultClick } = props;

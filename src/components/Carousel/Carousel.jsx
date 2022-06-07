@@ -1,10 +1,13 @@
+import { useEffect, useState, useContext } from "react";
+import { LoadContext } from "../../App";
 import "./Carousel.css";
 import Carousel_Display from "./Carousel_Display/Carousel_Display";
-import { useEffect, useState } from "react";
 
 export default function Carousel(props) {
-  const [carItems, setCar] = useState([]);
   const { setLivro, setClicked } = props;
+  const loaded = useContext(LoadContext)
+
+  const [carItems, setCar] = useState([]);
 
   function getIndex(num) {
     return [num === 1 ? 4 : num - 1, num === 4 ? 1 : num + 1];
@@ -17,7 +20,7 @@ export default function Carousel(props) {
   }, []);
 
   return (
-    <section className={"CarouselWrapper"}>
+    <section style={{display: !loaded && "none"}} className={"CarouselWrapper"}>
       <section className="carousel" aria-label="Gallery">
         <ol className="carousel__viewport">
           {carItems.map((item, index) => (

@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState, useContext } from "react";
-import styles from "./Anuncio.module.css";
+import { useEffect, useRef, useState } from "react";
 import Button from "../Button/Button";
-import imageExists from "./../../utils/filters/imageExists";
-import Loading from "./../../layout/Loading/Loading";
 import Modal from "../Modal/Modal";
+import Loading from "./../../layout/Loading/Loading";
+import imageExists from "./../../utils/filters/imageExists";
+import styles from "./Anuncio.module.css";
 
 export default function Anuncio(props) {
   const { info, clicked, setClicked, voltar } = props;

@@ -1,20 +1,30 @@
 import React from "react";
-
+import "./App.css";
 import AppBackground from "./layout/AppBackground/AppBackground";
+import Footer from "./layout/Footer/Footer";
 import Navbar from "./layout/Navbar/Navbar";
 import Home from "./pages/Home/Home";
-import Loading from "./layout/Loading/Loading";
+import StartPage from "./layout/StartPage/Loading";
+import { useState, useEffect, createContext } from "react";
 
-import "./App.css";
-import Footer from "./layout/Footer/Footer";
+export const LoadContext = createContext();
 
 function App() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setTimeout(()=>{setLoaded(true)},2000)
+  },[]);
+
   return (
-    <div className="App">
-      <AppBackground />
-      <Navbar />
-      <Home />
-      <Footer />
+    <div style={{ position: !loaded && "fixed" }} className="App">
+      <LoadContext.Provider value={loaded}>
+        <StartPage />
+        <AppBackground />
+        <Navbar />
+        <Home />
+        <Footer />
+      </LoadContext.Provider>
     </div>
   );
 }

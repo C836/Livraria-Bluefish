@@ -1,15 +1,15 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import { Categories, Category } from "../../components/Category/Category";
+import Detalhes_Livro from "../../components/Detalhes_Livro/Detalhes_Livro";
 import Display from "../../components/Display/Display";
 import Display_Destaque from "../../components/Display_Destaque/Display_Destaque";
-import Header from "../../layout/Header/Header";
-import styles from "./Home.module.css";
-import { Category, Categories } from "../../components/Category/Category";
-import Paginacao from "../../components/Paginacao/Paginacao";
 import Filter from "../../components/Filter/Filter";
-import ordenar from "../../utils/ordenar";
+import Paginacao from "../../components/Paginacao/Paginacao";
+import Header from "../../layout/Header/Header";
 import filtrarCategoria from "../../utils/filtrarCategoria";
 import getApi from "../../utils/getApi";
-import Detalhes_Livro from "../../components/Detalhes_Livro/Detalhes_Livro";
+import ordenar from "../../utils/ordenar";
+import styles from "./Home.module.css";
 
 export default function Home() {
   const [destaques, setDestaques] = useState([]);

@@ -1,14 +1,13 @@
-import logo from "./../../assets/images/logoWhite.png";
-import searchIcon from "./../../assets/images/searchIcon.svg";
-import styles from "./Navbar.module.css";
-import { useRef, useState, useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Resultado from "../../components/Resultado/Resultado";
-import getApi from "../../utils/getApi";
-import Divisor from "../../components/Divisor/Divisor";
-import Button from "./../../components/Button/Button";
+import { useRef, useState } from "react";
 import Anuncio from "../../components/Anuncio/Anuncio";
 import Detalhes_Livro from "../../components/Detalhes_Livro/Detalhes_Livro";
+import Divisor from "../../components/Divisor/Divisor";
+import Resultado from "../../components/Resultado/Resultado";
+import getApi from "../../utils/getApi";
+import logo from "./../../assets/images/logoWhite.png";
+import searchIcon from "./../../assets/images/searchIcon.svg";
+import Button from "./../../components/Button/Button";
+import styles from "./Navbar.module.css";
 
 export default function Navbar(props) {
   const [results, setResults] = useState([]);

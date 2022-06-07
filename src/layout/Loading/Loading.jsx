@@ -1,6 +1,5 @@
-import styles from "./Loading.module.css";
-import logo from "./../../assets/images/logoWhite.png";
 import LoadingCircle from "../../components/LoadingCircle/LoadingCircle";
+import styles from "./Loading.module.css";
 
 export default function Loading(props) {
   const { loaded } = props;

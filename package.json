@@ -8,12 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "crypto-js": "^4.1.1",
-    "encrypt-storage": "^2.2.10",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
-    "react-transition-group": "^4.4.2"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

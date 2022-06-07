@@ -1,7 +1,7 @@
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 import cross from "./../../assets/images/cross.svg";
 import styles from "./Delete.module.css";
-import Modal from "../Modal/Modal";
-import { useState } from "react";
 
 export default function Delete(props) {
   const { id, close } = props;
@@ -22,7 +22,7 @@ export default function Delete(props) {
   };
 
   const handleVoltar = () => {
-    setModal(false)
+    setModal(false);
   };
 
   return (
@@ -34,7 +34,9 @@ export default function Delete(props) {
           confirmar={handleDelete}
           voltar={handleVoltar}
         />
-      ) : ""}
+      ) : (
+        ""
+      )}
     </div>
   );
 }
