@@ -4,6 +4,13 @@
     position: relative;
     color: white;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: .2s;
+    cursor: pointer;
+    background-size: cover !important;
+}
+
+.Display_Destaque:hover{
+    filter: brightness(70%);
 }
 
 .Display_Destaque section{
@@ -36,4 +43,6 @@
 .Display_Destaque aside p{
     font-size: .9rem;
 }
+
+
 

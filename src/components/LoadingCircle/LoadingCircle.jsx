@@ -1,9 +1,12 @@
-import styles from "./LoadingCircle.module.css"
+import styles from "./LoadingCircle.module.css";
 
-export default function LoadingCircle(props){
-    return(
-        <div 
-        className={styles.LoadingCircle}
-        style={{display:props.loaded ? 'inline-block' : 'none'}} />
-    )
+export default function LoadingCircle(props) {
+  const { loaded } = props;
+
+  return (
+    <div
+      className={styles.LoadingCircle}
+      style={{ display: loaded ? "inline-block" : "none" }}
+    />
+  );
 }

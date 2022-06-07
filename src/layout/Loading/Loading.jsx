@@ -1,12 +1,15 @@
+import LoadingCircle from "../../components/LoadingCircle/LoadingCircle";
 import styles from "./Loading.module.css";
-import logo from "./../../assets/images/logoWhite.png";
 
-export default function Loading() {
+export default function Loading(props) {
+  const { loaded } = props;
+
   return (
-    <div className={styles.Loading}>
-      <figure>
-          <img src={logo} />
-      </figure>
+    <div
+      className={styles.Loading}
+      style={{ display: loaded ? "inline-block" : "none" }}
+    >
+      <LoadingCircle loaded={loaded} />
     </div>
   );
 }

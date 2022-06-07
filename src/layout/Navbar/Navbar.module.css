@@ -16,7 +16,7 @@
 }
 
 .Navbar section .logo {
-  width: 295px;
+  width: 305px;
   float: left;
 }
 
@@ -33,8 +33,13 @@
   height: 100%;
 }
 
-.Navbar section .Links a {
-  margin: 0 30px;
+.Navbar section .Links {
+  margin-left: 30px;
+}
+
+.Navbar section .Links button{
+  height: 50%;
+  padding: 0 20px;
 }
 
 .Navbar .logo img {
@@ -50,7 +55,7 @@
 .Navbar .Search {
   flex-direction: row;
   position: relative;
-  z-index: 5;
+  z-index: 0;
   transition: 0.2s;
 }
 
@@ -65,7 +70,6 @@
   border: 10px solid transparent;
   font: 1rem "Plus Jakarta Sans", sans-serif;
   outline: none;
-  z-index: 5;
   border-radius: 6px;
   text-indent: 35px;
 }
@@ -100,9 +104,14 @@
 
 .Navbar .Links .usuarioImagem {
   border-radius: 50%;
-  height: 60%;
+  min-width: 45px;
+  min-height: 45px;
+  max-height: 45px;
+  max-width: 45px;
+  width: auto;
   border: 3px solid white;
-  margin-left: 50px;
+  background-color: rgb(255, 102, 46);
+  margin-left: 25px;
 }
 
 .Navbar .disabled {

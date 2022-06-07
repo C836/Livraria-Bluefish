@@ -2,19 +2,28 @@ import {
   aventura,
   drama,
   ficcao,
-  romance,
-  terror,
   hq,
   infantis,
+  romance,
+  terror,
 } from "./../../assets/images/categories/index";
-
-import styles from "./Category.module.css"
+import styles from "./Category.module.css";
 
 export function Category(props) {
+  const { categoria, setCategoria, icone, nome } = props;
+  const texto = nome.toLowerCase();
+
+  const handleCategoria = () => {
+    setCategoria(nome.toLowerCase());
+  };
+
   return (
-    <div className={styles.Category}>
-      <img src={props.icone} />
-      <p>{props.nome}</p>
+    <div
+      onClick={handleCategoria}
+      className={`${styles.Category} ${categoria === texto && styles.selected}`}
+    >
+      <img className={categoria === texto && styles.selected} src={icone} />
+      <p>{nome}</p>
     </div>
   );
 }
@@ -29,7 +38,7 @@ export const Categories = [
     icone: drama,
   },
   {
-    categoria: "Ficçao científica",
+    categoria: "Ficção científica",
     icone: ficcao,
   },
   {

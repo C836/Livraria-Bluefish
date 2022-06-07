@@ -1,4 +1,4 @@
-.Detalhes_Livro{
+.Anuncio{
     background-color: rgb(255, 255, 255);
     color: black;
     position: fixed;
@@ -6,25 +6,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 2%;
+    padding: 1.5%;
     width: 95%;
     max-width: 1000px;
     max-height: 530px;
     z-index: 5;
+    border-top: 10px solid #1884c4;
+    border-bottom: 10px solid #1884c4;
     box-shadow: 0 0 15px black;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    
 }
 
-.Detalhes_Livro::after{
-    content: "";
-    height: calc(100% +20px);
-    width: 100%;
-    background-color: #1884c4;
-    position: absolute;
-}
-
-.Detalhes_Livro figure{
-    max-width: 40%;
+.Anuncio figure{
+    max-width: 35%;
+    min-width: 35%;
     float: left;
     padding-right: 3%;
     box-sizing: border-box;
@@ -32,14 +27,14 @@
     align-items: center;
 }
 
-.Detalhes_Livro figure img{
+.Anuncio figure img{
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.Detalhes_Livro aside{
-    width: 60%;
+.Anuncio form{
+    width: 100%;
     float: right;
     padding-left: 0;
     box-sizing: border-box;
@@ -47,37 +42,58 @@
     word-wrap: break-word;
     display: flex;
     flex-direction: column;
+    
 }
 
-.Detalhes_Livro aside h1{
+.Anuncio form input , .Anuncio form textarea{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    outline: 0;
+    border: 1px solid #b6b6b6;
+    padding: 5px 8px;
+    border-radius: 5px;
+    resize: none; 
+    font-size: 1rem;
+    margin: 4px 0;
+}
+
+.Anuncio form textarea{
+    flex-grow: 1;
+}
+
+.Anuncio form input[name="titulo"]{
+    font-weight: 800;
     font-size: 2.5rem;
-    width: 88%;
 }
 
-.Detalhes_Livro .Rating{
+.Anuncio form input[name="autor"]{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.Anuncio .Rating{
     width: 100%;
     display: flex;
     margin: 10px 0;
     padding: 0;
 }
 
-.Detalhes_Livro .Rating img{
+.Anuncio .Rating img{
     width: 20px;
 }
 
-.Detalhes_Livro .Vendedor{
+.Anuncio .Vendedor{
     font-size: 1rem;
     margin-bottom: 15px;
     font-weight: 500;
     color: rgb(104, 104, 104);
 }
 
-.Detalhes_Livro .Vendedor span{
+.Anuncio .Vendedor span{
     color: #1884c4;
 }
 
 
-.Detalhes_Livro aside p{
+.Anuncio form p{
     font-size: 0.9rem;
     line-height: 1.5;
     padding-right: 10px;
@@ -86,20 +102,20 @@
     height: auto;
 }
 
-.Detalhes_Livro .ButtonWrapper{
+.Anuncio .ButtonWrapper{
     width: 75%;
     display: grid;
-    margin-top: 4%;
+    margin-top: 2%;
     grid-template-columns: 1fr 1fr;
     gap: 2%;
     min-height: 60px;
 }
 
-.Detalhes_Livro .ButtonWrapper button:nth-last-child(1){
-    width: 170%;
+.Anuncio .ButtonWrapper button:nth-last-child(1){
+    width: 168%;
 }
 
-.Detalhes_Livro.disabled{
+.Anuncio.disabled{
     opacity: 0;
     pointer-events: none;
 }

@@ -1,20 +1,24 @@
 import styles from "./Display.module.css";
 
 export default function Display(props) {
-  const handleDisplayClick = () =>{
-    props.setLivro(props.id)
-    props.setClicked(true)
-  }
+  const { setLivro, setClicked, id, imagem, titulo, autor, preco } = props;
+
+  const handleDisplayClick = () => {
+    setLivro(id);
+    setClicked(true);
+  };
 
   return (
     <div onClick={handleDisplayClick} className={styles.Display}>
       <figure>
-        <img src={props.imagem} alt={props.titulo} />
+        <img src={imagem} alt={titulo} />
       </figure>
       <article>
-        <h1>{props.titulo.split('').length>35? props.titulo.slice(0, 35)+'...' : props.titulo}</h1>
-        <p>{props.autor}</p>
-        <h2>R${Number(String(props.preco).replace(',','.')).toFixed(2)}</h2>
+        <h1>
+          {titulo.split("").length > 35 ? titulo.slice(0, 35) + "..." : titulo}
+        </h1>
+        <p>{autor}</p>
+        <h2>R${Number(String(preco).replace(",", ".")).toFixed(2)}</h2>
       </article>
     </div>
   );

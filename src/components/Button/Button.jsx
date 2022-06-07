@@ -1,5 +1,5 @@
-import styles from "./Button.module.css";
 import cart from "./../../assets/images/cart.svg";
+import styles from "./Button.module.css";
 
 export default function Button(props) {
   return (
@@ -10,6 +10,7 @@ export default function Button(props) {
         color: props.cor,
         backgroundColor: props.backColor,
         borderRadius: props.border,
+        height: props.height,
       }}
     >
       {props.type === "addTo" ? (

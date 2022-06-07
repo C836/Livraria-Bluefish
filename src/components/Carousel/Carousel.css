@@ -24,6 +24,7 @@
   width: 100%;
   height: 500px;
   color: white;
+  pointer-events: none;
 }
 
 @keyframes tonext {
@@ -160,6 +161,7 @@ li {
 }
 
 .carousel__navigation {
+  pointer-events: all;
   position: absolute;
   right: 0;
   bottom: -50px;

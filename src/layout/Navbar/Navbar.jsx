@@ -1,18 +1,28 @@
-import logo from "./../../assets/images/logoWhite.png";
-import searchIcon from "./../../assets/images/searchIcon.svg";
-import styles from "./Navbar.module.css";
 import { useRef, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Anuncio from "../../components/Anuncio/Anuncio";
+import Detalhes_Livro from "../../components/Detalhes_Livro/Detalhes_Livro";
+import Divisor from "../../components/Divisor/Divisor";
 import Resultado from "../../components/Resultado/Resultado";
 import getApi from "../../utils/getApi";
-import Divisor from "../../components/Divisor/Divisor";
+import logo from "./../../assets/images/logoWhite.png";
+import searchIcon from "./../../assets/images/searchIcon.svg";
+import Button from "./../../components/Button/Button";
+import styles from "./Navbar.module.css";
 
 export default function Navbar(props) {
-  const usuario = props.usuario[0];
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState(false);
 
+  const [livro, setLivro] = useState(-1);
+  const [clicked, setClicked] = useState(false);
+
   const [searchInputRef, searchResultsRef] = [useRef(null), useRef(null)];
+
+  const [detalhes, setDetalhes] = useState(false);
+
+  const handleAnuncioClick = (e) => {
+    setClicked(true);
+  };
 
   const handleResultsChange = (e) => {
     if (e.target.value.length > 1) {
@@ -31,6 +41,11 @@ export default function Navbar(props) {
     }
   };
 
+  const handleResultClick = (e) => {
+    setLivro(e.target.id);
+    setDetalhes(true);
+  };
+
   window.addEventListener("click", (e) => {
     setSearch(e.target.classList.contains("toggleSearch") ? true : false);
   });
@@ -38,16 +53,18 @@ export default function Navbar(props) {
   return (
     <nav className={styles.Navbar}>
       <section>
-        <Link to="/" className={styles.logo}>
+        <div className={styles.logo}>
           <img src={logo} alt="Bluefish" />
           <p>Bluefish livraria</p>
-        </Link>
+        </div>
 
         <div className={styles.Links}>
-          <Link to="/sobre">Sobre</Link>
-          <p>Meus anúncios</p>
-          <img className={styles.usuarioImagem} src={usuario.imagem} />
+          <Button onClick={handleAnuncioClick} texto="Novo Anuncio +" />
         </div>
+
+        <section>
+          <Anuncio id={livro} clicked={clicked} setClicked={setClicked} />
+        </section>
 
         <div className={`toggleSearch ${styles.Search}`}>
           <img src={searchIcon} className={styles.SearchIcon} />
@@ -64,19 +81,22 @@ export default function Navbar(props) {
             }`}
           >
             {results.map((item, index) => (
-              <div key={index}>
+              <>
                 <Resultado
+                  resultClick={handleResultClick}
+                  id={item.id}
                   capa={item.capa}
                   titulo={item.titulo}
                   autor={item.autor}
                   preco={item.preco}
                 />
                 {index + 1 < results.length ? <Divisor /> : ""}
-              </div>
+              </>
             ))}
           </div>
         </div>
       </section>
+      <Detalhes_Livro id={livro} clicked={detalhes} setClicked={setDetalhes} />
     </nav>
   );
 }

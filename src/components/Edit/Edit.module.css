@@ -1,0 +1,12 @@
+.Edit{
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.Edit img{
+    width: 100%;
+}

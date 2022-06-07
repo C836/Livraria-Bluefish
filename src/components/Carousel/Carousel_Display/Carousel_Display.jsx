@@ -1,20 +1,25 @@
 import Button from "./../../Button/Button";
-import styles from "./Carousel_Display.module.css"
+import styles from "./Carousel_Display.module.css";
 
 export default function Carousel_Display(props) {
+  const { id, titulo, capa, descricao, setLivro, setClicked } = props;
+
+  const handleButtonClick = () =>{
+    setLivro(id);
+    setClicked(true);
+  }
+
   return (
     <section className={styles.Carousel_Display}>
       <div>
-        <img src="https://http2.mlstatic.com/D_NQ_NP_617917-MLB32140972589_092019-O.jpg" />
+        <img src={capa} />
       </div>
       <div>
-        <h1>Lorem ipsum dolor sit</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tempus
-          magna sed lectus feugiat pharetra. Ut dignissim facilisis diam, vitae
-          tincidunt lacus rutrum rhoncus.
-        </p>
-        <Button texto={"Detalhes"} />
+        <h1>{titulo}</h1>
+        <p>{descricao.slice(0, 200) + "..."}</p>
+        <Button
+        onClick={handleButtonClick}
+        texto={"Detalhes"} />
       </div>
     </section>
   );

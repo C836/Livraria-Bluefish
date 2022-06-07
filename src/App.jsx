@@ -1,39 +1,31 @@
-import React, { useState, createContext } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import React from "react";
+import "./App.css";
 import AppBackground from "./layout/AppBackground/AppBackground";
+import Footer from "./layout/Footer/Footer";
 import Navbar from "./layout/Navbar/Navbar";
 import Home from "./pages/Home/Home";
-import Sobre from "./pages/Sobre/Sobre";
-import Loading from "./layout/Loading/Loading";
+import StartPage from "./layout/StartPage/Loading";
+import { useState, useEffect, createContext } from "react";
 
-import "./App.css";
-
-const usuarioContext = createContext();
+export const LoadContext = createContext();
 
 function App() {
-  const [usuario, atualizarUsuario] = useState({
-    nome: "Gabriel",
-    imagem:
-      "https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true",
-  });
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setTimeout(()=>{setLoaded(true)},2000)
+  },[]);
 
   return (
-    <Router>
-      <usuarioContext.Provider value={usuario}>
-        {/* <Loading /> */}
-        <div className="App">
-          <AppBackground />
-          <Navbar usuario={[usuario, atualizarUsuario]} />
-          
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/sobre" element={<Sobre />} />
-            {/* <Route path='*' exact={true} element={<NotFound />} /> */}
-          </Routes>
-        </div>
-      </usuarioContext.Provider>
-    </Router>
+    <div style={{ position: !loaded && "fixed" }} className="App">
+      <LoadContext.Provider value={loaded}>
+        <StartPage />
+        <AppBackground />
+        <Navbar />
+        <Home />
+        <Footer />
+      </LoadContext.Provider>
+    </div>
   );
 }
 

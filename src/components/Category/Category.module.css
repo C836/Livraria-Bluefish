@@ -1,22 +1,30 @@
-.Category{
-    border: rgba(128, 128, 128, 0.4) 2px solid;
-    background-color: white;
-    text-align: center;
-    height: 80px;
-    width: 140px;
-    font: 500 0.8rem 'Plus Jakarta Sans', sans-serif;
-    margin: 10px;
-    border-radius: 20px;
-    margin: 12px auto;
-    transition: border .2s;
+.Category {
+  border: rgba(128, 128, 128, 0.4) 2px solid;
+  background-color: white;
+  text-align: center;
+  height: 80px;
+  width: 140px;
+  font: 500 0.8rem "Plus Jakarta Sans", sans-serif;
+  margin: 10px;
+  border-radius: 20px;
+  margin: 12px auto;
+  transition: border 0.2s;
+  cursor: pointer;
 }
 
-.Category:hover{
-    border-color: #1884c4;
+.Category.selected, .Category:hover {
+  border-color: #1884c4;
+  filter: saturate(1)
 }
 
-.Category img{
-    height: 25px;
-    padding: 15px 0 5px 0;
-    margin: auto;
+img.selected, .Category:hover > img{
+  filter: saturate(1) !important;
+}
+
+.Category img {
+  height: 25px;
+  padding: 15px 0 5px 0;
+  margin: auto;
+  filter: saturate(0);
+  transition: .2s ;
 }

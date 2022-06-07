@@ -1,5 +1,5 @@
-import styles from "./Paginacao.module.css";
 import arrow from "./../../assets/images/arrow.svg";
+import styles from "./Paginacao.module.css";
 
 export default function Paginacao(props) {
   const handleButtonClick = (e) => {
