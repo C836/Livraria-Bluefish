@@ -2,58 +2,75 @@ import { useEffect, useRef, useState, useContext } from "react";
 import styles from "./Anuncio.module.css";
 import Button from "../Button/Button";
 import imageExists from "./../../utils/filters/imageExists";
-import { getId, getUser } from "../../utils/localStorage";
-import { encrypt, decrypt } from "../../utils/encript";
+import Loading from "./../../layout/Loading/Loading";
+import Modal from "../Modal/Modal";
 
 export default function Anuncio(props) {
+  const { info, clicked, setClicked, voltar } = props;
 
-  const [active, setActive] = useState(false);
-  const [background, setBackground] = useState(false);
-  const [livro, setLivro] = useState([]);
+  const [active, setActive] = useState({
+    anuncio: false,
+    background: false,
+    loading: false,
+    modal: false,
+  });
+
+  const { anuncio, background, loading, modal } = active;
+
+  const anuncioRef = useRef(null);
 
   const handleClickVoltar = (e) => {
     e.preventDefault();
-    setBackground(false);
-    setActive(false);
-    props.setClicked(false);
+    setActive({ ...active, anuncio: false, background: false });
+    setClicked(false);
+    voltar();
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch((props.info ? "https://livraria-apistore.herokuapp.com/livros/update/" + props.info.id : "https://livraria-apistore.herokuapp.com/livros/add"), {
-      method: props.info ? "PATCH" : "POST",
-      headers: new Headers({
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      }),
-      body: JSON.stringify({
-        titulo: e.target.titulo.value,
-        autor: e.target.autor.value,
-        capa: e.target.capa.value,
-        preco: e.target.preco.value,
-        vendedor: e.target.vendedor.value,
-        genero: e.target.genero.value,
-        descricao: e.target.descricao.value,
-      }),
-    })
-      .then((res) => res.json())
+    setActive({ ...active, anuncio: false, loading: true });
+
+    const formValues = e.target;
+
+    fetch(
+      info
+        ? "https://livraria-apistore.herokuapp.com/livros/update/" + info.id
+        : "https://livraria-apistore.herokuapp.com/livros/add",
+      {
+        method: info ? "PATCH" : "POST",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }),
+        body: JSON.stringify({
+          titulo: formValues.titulo.value,
+          autor: formValues.autor.value,
+          capa: formValues.capa.value,
+          preco: formValues.preco.value,
+          vendedor: formValues.vendedor.value,
+          genero: formValues.genero.value,
+          descricao: formValues.descricao.value,
+        }),
+      }
+    )
+      .then((res) => {
+        res.json();
+        anuncioRef.current.reset();
+        setActive({ ...active, anuncio: false, loading: false, modal: true });
+      })
       .then((res) =>
-        {localStorage.setItem(
+        localStorage.setItem(
           "addedBooks",
           `${localStorage.getItem("addedBooks")},${res.lastID}`
-        ); }
+        )
       );
-    // setBackground(false);
-    // setActive(false);
-    // props.setClicked(false);
   };
 
   useEffect(() => {
-    if (props.clicked === true) {
-      setBackground(true);
-      setActive(true);
+    if (clicked === true) {
+      setActive({ ...active, anuncio: true, background: true });
     }
-  }, [props.clicked]);
+  }, [clicked]);
 
   const placeholderURL =
     "https://www.maketuwetlands.org.nz/wp-content/uploads/2018/09/placeholder_portrait-1.jpg";
@@ -65,17 +82,33 @@ export default function Anuncio(props) {
     });
   };
 
+  const handleModelConfirm = () => {
+    setActive({ ...active, background: false, modal: false });
+    setClicked(false);
+    voltar();
+  };
+
   return (
     <>
+      <Loading loaded={loading} />
       <div
         className={`
         ${styles.DetalhesBackground} 
         ${background ? "" : styles.disabled}`}
       />
+      <Modal
+        active={modal}
+        confirmar={handleModelConfirm}
+        texto={
+          info
+            ? "Registro atualizado com sucesso"
+            : "Registro adicionado com sucesso"
+        }
+      />
       <div
         className={`
-        ${styles.Anuncio} 
-        ${active ? "" : styles.disabled}`}
+        ${styles.Anuncio}
+        ${anuncio ? "" : styles.disabled}`}
       >
         <figure>
           <img src={imgSrc} />
@@ -85,34 +118,34 @@ export default function Anuncio(props) {
           <input
             name="titulo"
             placeholder="Titulo"
-            defaultValue={props.info?.titulo}
+            defaultValue={info?.titulo}
           />
-          <input name="autor" placeholder="Autor" defaultValue={props.info?.autor} />
+          <input name="autor" placeholder="Autor" defaultValue={info?.autor} />
           <input
             onChange={handleImgSrcChange}
             name="capa"
             placeholder="Capa (URL)"
-            defaultValue={props.info?.capa}
+            defaultValue={info?.capa}
           />
           <input
             name="preco"
             placeholder="Preço do livro à vista"
-            defaultValue={props.info?.preco}
+            defaultValue={info?.preco}
           />
           <input
             name="vendedor"
             placeholder="Vendedor (nome)"
-            defaultValue={props.info?.vendedor}
+            defaultValue={info?.vendedor}
           />
           <input
             name="genero"
             placeholder="Gêneros (ex: Romance, aventura)"
-            defaultValue={props.info?.genero}
+            defaultValue={info?.genero}
           />
           <textarea
             name="descricao"
             placeholder="Descrição"
-            defaultValue={props.info?.descricao}
+            defaultValue={info?.descricao}
           />
 
           <span className={styles.ButtonWrapper}>

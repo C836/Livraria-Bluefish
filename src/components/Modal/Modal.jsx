@@ -2,13 +2,16 @@ import styles from "./Modal.module.css";
 import Button from "./../Button/Button";
 
 export default function Modal(props) {
-  const { texto, confirmar, voltar } = props;
+  const { active, texto, confirmar, voltar } = props;
 
   return (
-    <div className={styles.Modal}>
+    <div
+      className={styles.Modal}
+      style={{ display: active ? "inline-block" : "none" }}
+    >
       <p>{texto}</p>
       <span>
-        <Button texto={"Voltar"} border={"10px"} onClick={voltar} />
+        {voltar && <Button texto={"Voltar"} border={"10px"} onClick={voltar} />}
         <Button
           texto={"Confirmar"}
           cor={"white"}

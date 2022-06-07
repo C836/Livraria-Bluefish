@@ -8,6 +8,7 @@ import getApi from "../../utils/getApi";
 import Divisor from "../../components/Divisor/Divisor";
 import Button from "./../../components/Button/Button";
 import Anuncio from "../../components/Anuncio/Anuncio";
+import Detalhes_Livro from "../../components/Detalhes_Livro/Detalhes_Livro";
 
 export default function Navbar(props) {
   const [results, setResults] = useState([]);
@@ -17,6 +18,8 @@ export default function Navbar(props) {
   const [clicked, setClicked] = useState(false);
 
   const [searchInputRef, searchResultsRef] = [useRef(null), useRef(null)];
+
+  const [detalhes, setDetalhes] = useState(false);
 
   const handleAnuncioClick = (e) => {
     setClicked(true);
@@ -39,6 +42,11 @@ export default function Navbar(props) {
     }
   };
 
+  const handleResultClick = (e) => {
+    setLivro(e.target.id);
+    setDetalhes(true);
+  };
+
   window.addEventListener("click", (e) => {
     setSearch(e.target.classList.contains("toggleSearch") ? true : false);
   });
@@ -52,9 +60,6 @@ export default function Navbar(props) {
         </Link>
 
         <div className={styles.Links}>
-          <Link to="/sobre">
-            <a style={{ marginRight: "35px" }}>Sobre</a>
-          </Link>
           <Button onClick={handleAnuncioClick} texto="Novo Anuncio +" />
         </div>
 
@@ -77,19 +82,22 @@ export default function Navbar(props) {
             }`}
           >
             {results.map((item, index) => (
-              <div key={index}>
+              <>
                 <Resultado
+                  resultClick={handleResultClick}
+                  id={item.id}
                   capa={item.capa}
                   titulo={item.titulo}
                   autor={item.autor}
                   preco={item.preco}
                 />
                 {index + 1 < results.length ? <Divisor /> : ""}
-              </div>
+              </>
             ))}
           </div>
         </div>
       </section>
+      <Detalhes_Livro id={livro} clicked={detalhes} setClicked={setDetalhes} />
     </nav>
   );
 }

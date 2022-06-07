@@ -44,8 +44,6 @@ export default function Detalhes_Livro(props) {
     if (localStorage.getItem("addedBooks")) {
       setIdList(localStorage.getItem("addedBooks").split(","));
     }
-
-    console.log(localStorage.getItem("addedBooks").split(","));
   }, []);
 
   return (
@@ -63,7 +61,7 @@ export default function Detalhes_Livro(props) {
         ${styles.Detalhes_Livro} 
         ${active ? "" : styles.disabled}`}
         >
-          {idList.find((e) => e === String(livro[0].id)) && (
+          {idList?.find((e) => e === String(livro[0].id)) && (
             <>
               <Delete id={livro[0].id} close={handleClickVoltar} />
               <Edit voltar={handleClickVoltar} info = {livro} />

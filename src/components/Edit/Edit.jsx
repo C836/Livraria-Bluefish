@@ -11,6 +11,7 @@ export default function Edit(props) {
   const handleEdit = (e) => {
       console.log(info[0].id)
     setClicked(true);
+    voltar
   };
 
   return (
@@ -19,7 +20,7 @@ export default function Edit(props) {
         <img onClick={handleEdit} src={pencil} />
       </div>
 
-      <Anuncio info={info[0]} clicked={clicked} setClicked={setClicked} />
+      <Anuncio info={info[0]} voltar={voltar} clicked={clicked} setClicked={setClicked} />
     </>
   );
 }

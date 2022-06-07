@@ -55,7 +55,7 @@
 .Navbar .Search {
   flex-direction: row;
   position: relative;
-  z-index: 5;
+  z-index: 0;
   transition: 0.2s;
 }
 
@@ -70,7 +70,6 @@
   border: 10px solid transparent;
   font: 1rem "Plus Jakarta Sans", sans-serif;
   outline: none;
-  z-index: 5;
   border-radius: 6px;
   text-indent: 35px;
 }

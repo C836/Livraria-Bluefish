@@ -43,3 +43,7 @@
     font-size: 1.5rem;
     width: 260px;
 }
+
+.Carousel_Display button{
+    pointer-events: all;
+}

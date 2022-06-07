@@ -10,7 +10,7 @@
     padding: 2%;
     max-width: 1000px;
     max-height: 530px;
-    z-index: 5;
+    z-index: 999;
     border-top: 10px solid #1884c4;
     border-bottom: 10px solid #1884c4;
     box-shadow: 0 0 25px black;
@@ -24,7 +24,6 @@
 .Modal span{
     display: grid;
     column-gap: 8px;
-    grid-template-columns: 1fr 1fr;
     height: 50px;
 }
 

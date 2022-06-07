@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Display from "../../components/Display/Display";
 import Display_Destaque from "../../components/Display_Destaque/Display_Destaque";
 import Header from "../../layout/Header/Header";
@@ -23,48 +23,70 @@ export default function Home() {
 
   const [categoria, setCategoria] = useState("");
 
+  const normalize = (text) => {
+    return text
+      .split(" ")[0]
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  };
+
+  const livrosFiltrados = livros.filter((e) =>
+    filtrarCategoria(e, normalize(categoria))
+  );
+
   useEffect(() => {
     getApi().then((res) => setLivros(res));
   }, [livros]);
 
+  useEffect(() => {
+    fetch("https://livraria-apistore.herokuapp.com/destaques")
+      .then((res) => res.json())
+      .then((res) =>
+        setDestaques(
+          res.filter(
+            (e) =>
+              e.genero === normalize(categoria !== "" ? categoria : "aventura")
+          )
+        )
+      );
+  }, [categoria]);
+
   return (
     <div className={styles.Home}>
-      <Header />
+      <Header setLivro={setLivro} setClicked={setClicked} />
 
       <main>
         <section className={styles.Categories}>
           {Categories.map((item, index) => (
-            <Category key={index} nome={item.categoria} icone={item.icone} />
+            <Category
+              key={index}
+              categoria={categoria.toLowerCase()}
+              setCategoria={setCategoria}
+              nome={item.categoria}
+              icone={item.icone}
+            />
           ))}
         </section>
 
         <section className={styles.Destaque}>
-          <Display_Destaque
-            capa={
-              "https://manualgeek.com.br/wp-content/uploads/2022/05/5149j28fV3L-768x1100.jpg"
-            }
-            titulo={"Os reinos partidos"}
-            autor={"N.K Jemisin"}
-            imagem={
-              "https://i2.wp.com/impagine.online/wp-content/uploads/2021/09/oscem-milreinos.png?fit=800%2C450&ssl=1"
-            }
-          />
-          <Display_Destaque
-            capa={
-              "https://manualgeek.com.br/wp-content/uploads/2022/05/5149j28fV3L-768x1100.jpg"
-            }
-            titulo={"Os reinos partidos"}
-            autor={"N.K Jemisin"}
-            imagem={
-              "https://i2.wp.com/impagine.online/wp-content/uploads/2021/09/oscem-milreinos.png?fit=800%2C450&ssl=1"
-            }
-          />
+          {destaques.map((item, index) => (
+            <Display_Destaque
+              key={index}
+              id={item.id}
+              setLivro={setLivro}
+              setClicked={setClicked}
+              capa={item.capa}
+              titulo={item.nome}
+              autor={item.autor}
+              imagem={item.background}
+            />
+          ))}
         </section>
 
         <section className={styles.FilterWrapper}>
           <Filter
             pagina={pagina}
-            quantidade={livros.length}
+            quantidade={livrosFiltrados.length}
             exibicao={exibicao}
             setExibicao={setExibicao}
             ordem={ordem}
@@ -78,8 +100,7 @@ export default function Home() {
             gridTemplateColumns: `repeat(5,1fr)`,
           }}
         >
-          {livros
-            .filter((e) => filtrarCategoria(e, categoria))
+          {livrosFiltrados
             .sort(ordenar("titulo", "id", "preco", ordem))
             .map((item, index) => {
               if (
@@ -112,7 +133,7 @@ export default function Home() {
 
         <section className={styles.PaginacaoWrapper}>
           <Paginacao
-            quantidade={livros.length}
+            quantidade={livrosFiltrados.length}
             exibicao={exibicao}
             pagina={pagina}
             setPagina={setPagina}
