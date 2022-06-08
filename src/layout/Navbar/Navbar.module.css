@@ -37,7 +37,7 @@
   margin-left: 30px;
 }
 
-.Navbar section .Links button{
+.Navbar section .Links button {
   height: 50%;
   padding: 0 20px;
 }
@@ -45,11 +45,11 @@
 .Navbar .logo img {
   height: 60%;
   margin-top: 5px;
+  margin-right: 15px;
 }
 
 .Navbar .logo p {
   font: 2.2rem "Bubblegum Sans", cursive;
-  margin-left: 15px;
 }
 
 .Navbar .Search {
@@ -117,4 +117,23 @@
 .Navbar .disabled {
   opacity: 0;
   pointer-events: none;
+}
+
+@media screen and (max-width: 950px) {
+  .Navbar section .logo p {
+    display: none;
+  }
+
+  .Navbar section .logo {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .Navbar .Links button p {
+    font-size: 1.8rem;
+    line-height: 0;
+    padding-bottom: 8px;
+    position: absolute;
+  }
 }

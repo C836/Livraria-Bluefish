@@ -97,9 +97,6 @@ export default function Home() {
         <section
           id="catalogo"
           className={styles.Grid}
-          style={{
-            gridTemplateColumns: `repeat(5,1fr)`,
-          }}
         >
           {livrosFiltrados
             .sort(ordenar("titulo", "id", "preco", ordem))

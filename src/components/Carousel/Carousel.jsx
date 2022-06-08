@@ -37,7 +37,7 @@ export default function Carousel(props) {
                 setLivro={setLivro}
                 setClicked={setClicked}
               />
-              <div className="snapper">
+              {/* <div className="snapper">
                 <a
                   href={"#slide" + getIndex(index + 1)[0]}
                   className="prev"
@@ -46,7 +46,7 @@ export default function Carousel(props) {
                   href={"#slide" + getIndex(index + 1)[1]}
                   className="next"
                 />
-              </div>
+              </div> */}
             </li>
           ))}
         </ol>

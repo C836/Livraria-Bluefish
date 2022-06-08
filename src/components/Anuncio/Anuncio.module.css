@@ -1,140 +1,144 @@
-.Anuncio{
-    background-color: rgb(255, 255, 255);
-    color: black;
-    position: fixed;
-    display: flex;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 1.5%;
-    width: 95%;
-    max-width: 1000px;
-    max-height: 530px;
-    z-index: 5;
-    border-top: 10px solid #1884c4;
-    border-bottom: 10px solid #1884c4;
-    box-shadow: 0 0 15px black;
-    
+.Anuncio {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  position: fixed;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5%;
+  width: 95%;
+  max-width: 1000px;
+  max-height: 530px;
+  z-index: 5;
+  border-top: 10px solid #1884c4;
+  border-bottom: 10px solid #1884c4;
+  box-shadow: 0 0 15px black;
 }
 
-.Anuncio figure{
-    max-width: 35%;
-    min-width: 35%;
-    float: left;
-    padding-right: 3%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
+.Anuncio figure {
+  max-width: 35%;
+  min-width: 35%;
+  float: left;
+  padding-right: 3%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
-.Anuncio figure img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.Anuncio figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.Anuncio form{
-    width: 100%;
-    float: right;
-    padding-left: 0;
-    box-sizing: border-box;
-    position: relative;
-    word-wrap: break-word;
-    display: flex;
-    flex-direction: column;
-    
+.Anuncio form {
+  width: 100%;
+  float: right;
+  padding-left: 0;
+  box-sizing: border-box;
+  position: relative;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
 }
 
-.Anuncio form input , .Anuncio form textarea{
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    outline: 0;
-    border: 1px solid #b6b6b6;
-    padding: 5px 8px;
-    border-radius: 5px;
-    resize: none; 
-    font-size: 1rem;
-    margin: 4px 0;
+.Anuncio form input,
+.Anuncio form textarea {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  outline: 0;
+  border: 1px solid #b6b6b6;
+  padding: 5px 8px;
+  border-radius: 5px;
+  resize: none;
+  font-size: 1rem;
+  margin: 4px 0;
 }
 
-.Anuncio form textarea{
-    flex-grow: 1;
+.Anuncio form textarea {
+  flex-grow: 1;
 }
 
-.Anuncio form input[name="titulo"]{
-    font-weight: 800;
-    font-size: 2.5rem;
+.Anuncio form input[name="titulo"] {
+  font-weight: 800;
+  font-size: 2.5rem;
 }
 
-.Anuncio form input[name="autor"]{
-    font-weight: 600;
-    font-size: 1.2rem;
+.Anuncio form input[name="autor"] {
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
-.Anuncio .Rating{
-    width: 100%;
-    display: flex;
-    margin: 10px 0;
-    padding: 0;
+.Anuncio .Rating {
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+  padding: 0;
 }
 
-.Anuncio .Rating img{
-    width: 20px;
+.Anuncio .Rating img {
+  width: 20px;
 }
 
-.Anuncio .Vendedor{
-    font-size: 1rem;
-    margin-bottom: 15px;
-    font-weight: 500;
-    color: rgb(104, 104, 104);
+.Anuncio .Vendedor {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: rgb(104, 104, 104);
 }
 
-.Anuncio .Vendedor span{
-    color: #1884c4;
+.Anuncio .Vendedor span {
+  color: #1884c4;
 }
 
-
-.Anuncio form p{
-    font-size: 0.9rem;
-    line-height: 1.5;
-    padding-right: 10px;
-    flex-grow: 1;
-    overflow-y: auto;
-    height: auto;
+.Anuncio form p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding-right: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: auto;
 }
 
-.Anuncio .ButtonWrapper{
-    width: 75%;
-    display: grid;
-    margin-top: 2%;
-    grid-template-columns: 1fr 1fr;
-    gap: 2%;
-    min-height: 60px;
+.Anuncio .ButtonWrapper {
+  width: 75%;
+  display: grid;
+  margin-top: 2%;
+  grid-template-columns: 1fr 1fr;
+  gap: 2%;
+  min-height: 60px;
 }
 
-.Anuncio .ButtonWrapper button:nth-last-child(1){
-    width: 168%;
+.Anuncio .ButtonWrapper button:nth-last-child(1) {
+  width: 168%;
 }
 
-.Anuncio.disabled{
-    opacity: 0;
-    pointer-events: none;
+.Anuncio.disabled {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.DetalhesBackground{
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    background-color: rgba(0, 0, 0, 0.8);
-    transition: .3s;
+.DetalhesBackground {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 0.3s;
 }
 
-.DetalhesBackground.disabled{
-    opacity: 0;
-    pointer-events: none;
+.DetalhesBackground.disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 830px) {
+    .Anuncio figure{
+        display: none !important;
+    }
 }
