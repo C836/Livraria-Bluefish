@@ -22,7 +22,7 @@
 .CarouselWrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 600px;
   color: white;
   pointer-events: none;
 }
@@ -84,14 +84,14 @@ li {
   padding-top: 500px;
   left: 50%;
   transform: translateX(-50%);
-  height: 0;
+  height: 600px;
   max-width: 1200px;
   perspective: 100px;
   overflow: hidden;
   pointer-events: none;
 }
 
-.carousel__viewport {
+.viewport {
   position: absolute;
   top: 0;
   right: 0;
@@ -106,7 +106,7 @@ li {
   scroll-snap-type: x mandatory;
 }
 
-.carousel__slide {
+.slide {
   position: relative;
   padding-top: 120px;
   flex: 0 0 100%;
@@ -114,11 +114,11 @@ li {
   counter-increment: item;
 }
 
-.carousel__slide img {
+.slide img {
   width: 200px;
 }
 
-.carousel__slide:before {
+.slide:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -127,7 +127,7 @@ li {
   font-size: 2em;
 }
 
-.carousel__snapper {
+.snapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -137,30 +137,30 @@ li {
 }
 
 @media (hover: hover) {
-  .carousel__snapper {
+  .snapper {
     animation-name: tonext, snap;
     animation-timing-function: ease;
     animation-duration: 4s;
     animation-iteration-count: infinite;
   }
 
-  .carousel__slide:last-child .carousel__snapper {
+  .slide:last-child .snapper {
     animation-name: tostart, snap;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .carousel__snapper {
+  .snapper {
     animation-name: none;
   }
 }
 
-.carousel:hover .carousel__snapper,
-.carousel:focus-within .carousel__snapper {
+.carousel:hover .snapper,
+.carousel:focus-within .snapper {
   animation-name: none;
 }
 
-.carousel__navigation {
+.navigation {
   pointer-events: all;
   position: absolute;
   right: 0;
@@ -169,12 +169,12 @@ li {
   text-align: center;
 }
 
-.carousel__navigation-list,
-.carousel__navigation-item {
+.navigation-list,
+.navigation-item {
   display: inline-block;
 }
 
-.carousel__navigation-button {
+.navigation-button {
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;

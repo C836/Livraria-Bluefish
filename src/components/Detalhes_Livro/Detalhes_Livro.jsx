@@ -87,7 +87,7 @@ export default function Detalhes_Livro(props) {
               )}
             </h4>
 
-            <p>{livro[0].descricao}</p>
+            <p className={styles.Descricao}>{livro[0].descricao}</p>
 
             <span className={styles.ButtonWrapper}>
               <Button

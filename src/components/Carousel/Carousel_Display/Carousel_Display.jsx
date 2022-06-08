@@ -16,7 +16,7 @@ export default function Carousel_Display(props) {
       </div>
       <div>
         <h1>{titulo}</h1>
-        <p>{descricao.slice(0, 200) + "..."}</p>
+        <p className={styles.Descricao}>{descricao.slice(0, 200) + "..."}</p>
         <Button
         onClick={handleButtonClick}
         texto={"Detalhes"} />

@@ -1,6 +1,9 @@
 import styles from "./Filter.module.css";
+import useWindowDimensions from "../../utils/useWindowDimensions";
 
 export default function Filter(props) {
+  const { width, height } = useWindowDimensions();
+
   const handleExibicaoChange = (e) => {
     props.setExibicao(e.target.value);
   };
@@ -10,12 +13,14 @@ export default function Filter(props) {
   };
   return (
     <div className={styles.Filter}>
-      <p>
-        {`Exibindo
+      {width > 750 && (
+        <p>
+          {`Exibindo
         ${String(Number(props.exibicao) * (props.pagina - 1)).slice(0, -1)}1 - 
         ${props.exibicao * props.pagina} de 
         ${props.quantidade} itens`}
-      </p>
+        </p>
+      )}
 
       <section>
         <label htmlFor="exibicao">Exibir:⠀</label>

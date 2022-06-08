@@ -8,6 +8,7 @@ import logo from "./../../assets/images/logoWhite.png";
 import searchIcon from "./../../assets/images/searchIcon.svg";
 import Button from "./../../components/Button/Button";
 import styles from "./Navbar.module.css";
+import useWindowDimensions from "../../utils/useWindowDimensions";
 
 export default function Navbar(props) {
   const [results, setResults] = useState([]);
@@ -19,6 +20,8 @@ export default function Navbar(props) {
   const [searchInputRef, searchResultsRef] = [useRef(null), useRef(null)];
 
   const [detalhes, setDetalhes] = useState(false);
+
+  const {width, height} = useWindowDimensions()
 
   const handleAnuncioClick = (e) => {
     setClicked(true);
@@ -59,7 +62,7 @@ export default function Navbar(props) {
         </div>
 
         <div className={styles.Links}>
-          <Button onClick={handleAnuncioClick} texto="Novo Anuncio +" />
+          <Button onClick={handleAnuncioClick} texto={width > 700 ? "Novo Anuncio +" : "+"} />
         </div>
 
         <section>

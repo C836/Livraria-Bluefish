@@ -22,12 +22,12 @@ export default function Carousel(props) {
   return (
     <section style={{display: !loaded && "none"}} className={"CarouselWrapper"}>
       <section className="carousel" aria-label="Gallery">
-        <ol className="carousel__viewport">
+        <ol className="viewport">
           {carItems.map((item, index) => (
             <li
-              id={"carousel__slide" + (index + 1)}
+              id={"slide" + (index + 1)}
               tabIndex="0"
-              className="carousel__slide"
+              className="slide"
             >
               <Carousel_Display
                 id={item.id}
@@ -37,48 +37,20 @@ export default function Carousel(props) {
                 setLivro={setLivro}
                 setClicked={setClicked}
               />
-              <div className="carousel__snapper">
+              {/* <div className="snapper">
                 <a
-                  href={"#carousel__slide" + getIndex(index + 1)[0]}
-                  className="carousel__prev"
+                  href={"#slide" + getIndex(index + 1)[0]}
+                  className="prev"
                 />
                 <a
-                  href={"#carousel__slide" + getIndex(index + 1)[1]}
-                  className="carousel__next"
+                  href={"#slide" + getIndex(index + 1)[1]}
+                  className="next"
                 />
-              </div>
+              </div> */}
             </li>
           ))}
         </ol>
       </section>
-      <aside className="carousel__navigation">
-        <ol className="carousel__navigation-list">
-          <li className="carousel__navigation-item">
-            <a
-              href="#carousel__slide1"
-              className="carousel__navigation-button"
-            ></a>
-          </li>
-          <li className="carousel__navigation-item">
-            <a
-              href="#carousel__slide2"
-              className="carousel__navigation-button"
-            ></a>
-          </li>
-          <li className="carousel__navigation-item">
-            <a
-              href="#carousel__slide3"
-              className="carousel__navigation-button"
-            ></a>
-          </li>
-          <li className="carousel__navigation-item">
-            <a
-              href="#carousel__slide4"
-              className="carousel__navigation-button"
-            ></a>
-          </li>
-        </ol>
-      </aside>
     </section>
   );
 }

@@ -18,7 +18,7 @@ export default function Button(props) {
       ) : (
         ""
       )}
-      {props.texto}
+      <p>{props.texto}</p>
     </button>
   );
 }
