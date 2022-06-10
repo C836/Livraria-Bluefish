@@ -22,7 +22,7 @@
 ***
 
 |Endpoint|Nome|Função|
-|---|---|---|---|
+|---|---|---|
 |'/'|Home|Página inicial com os livros disponíveis, destaques, ferramenta de busca e filtros.|
 |'/livros'|API|Interação com a API CRUD completa para adicionar, modificar, buscar (no topo da página principal)e deletar livros|
 |'/destaques'|Destaques|Lista de livros em destaque na página principal|
