@@ -37,7 +37,7 @@
 
 .Home .Grid {
   width: 95%;
-  max-width: 95%;
+  max-width: 1175px;
   display: grid;
   align-self: center;
   margin-top: 40px;
